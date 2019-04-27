@@ -4,31 +4,30 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Imc {
-
+// BMI(Body Mass Index in kilogrammes and centimeteres)
 	public static void main(String[] args) {
-// Cálculo de IMC
-		double pessoaAltura = 0, pessoaPeso = 0, imc;
+
+		double height, weight, bmi;
 		Scanner read = new Scanner(System.in);
 
-		System.out.println("Digite seu peso: ");
-		pessoaPeso = read.nextDouble();
-		System.out.println("Digite sua altura: ");
-		pessoaAltura = read.nextDouble();
+		System.out.println("Enter with your weight: ");
+		weight = read.nextDouble();
+		System.out.println("Enter with your heght: ");
+		height = read.nextDouble();
 
-		imc = (pessoaPeso) / Math.pow(pessoaAltura, 2);
+		bmi = (weight) / Math.pow(height, 2);
 
-		String resultado = String.format("%.2f", imc);
-		System.out.println("Seu IMC é: " + resultado);
+		String result = String.format("%.2f", bmi);
+		System.out.println("Seu IMC Ã©: " + result);
 
-		if (imc >= 18.5 && imc < 25) {
-			System.out.println("IMC normal");
-		} else if (imc > 25 && imc < 30) {
-			System.out.println("Você está acima do peso");
-		} else if (imc > 30 && imc < 35) {
-			System.out.println("Você está obeso");
+		if (bmi <18.5) {
+			System.out.println("Underweight");
+		}else if (bmi >= 18.5 && bmi < 25){
+			System.out.println("Normal weight");
+		} else if (bmi > 25 && bmi < 30) {
+			System.out.println("Overweight");
 		} else {
-			System.out.println("Você quebrou a balança!");
-
+			System.out.println("Obese");
 		}
 
 		read.close();
