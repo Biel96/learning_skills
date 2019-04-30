@@ -1,0 +1,48 @@
+package entities;
+
+public class Rectangle {
+
+	public double width;
+	public double height;
+	
+	public double area() {
+		double area = width*height;
+		
+		return area;
+	}
+	public double perimeter() {
+		double perimeter = 2*(width+height);
+		return perimeter;
+	}
+	public double diagonal() {
+		double diagonal = Math.sqrt(Math.pow(width, 2)+Math.pow(height, 2));
+		return diagonal;
+	}
+}
+
+package application;
+import entities.Rectangle;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class ProgramRectangle {
+
+	public static void main(String[] args) {
+		
+		DecimalFormat df = new DecimalFormat();
+		df.applyPattern("#####.##");
+		
+		Scanner read = new Scanner (System.in);
+		Rectangle x = new Rectangle();
+		
+		System.out.println("Enter rectangle width and height: ");
+		x.width=read.nextDouble();
+		x.height=read.nextDouble();
+		
+		System.out.println("AREA = "+df.format(x.area()));
+		System.out.println("PERIMETER = "+df.format(x.perimeter()));
+		System.out.println("DIAGONAL = "+df.format(x.diagonal()));
+		
+		read.close();
+	}
+
+}
