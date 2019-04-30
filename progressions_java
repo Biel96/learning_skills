@@ -1,0 +1,33 @@
+package progressoes_pa_pg;
+import java.lang.Math;
+public class Progressoes {
+	
+  static double progGeo(double a1, double q, double n) {
+		double an = 0;
+		Math.pow(q, n);
+		for (double i = 0; i < n; ++i) {
+			an = a1 * (Math.pow(q, n - 1));
+		}
+		return an;
+	}
+	
+  
+  static double progArit(double a1, double r, double n) {
+		double an;
+		an = a1 + (n - 1) * r;
+
+		return an;
+	}
+
+	public static void main(String[] args) {
+
+		String pa = "PA";
+		String pg = "PG";
+		/*
+		 * prog("a1", "razão", "termo")
+		 */
+
+		System.out.println(progGeo(2, 2, 5) + " " + pg);
+		System.out.println(progArit(2, 2, 5) + " " + pa);
+	}
+}
