@@ -1,0 +1,53 @@
+package entities;
+
+public class Triangle {
+	public double a;
+	public double b;
+	public double c;
+
+	public double area() {
+		double p = (a + b + c) / 2.0;
+		return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+	}
+}
+
+
+package application;
+import java.util.Scanner;
+import entities.Triangle;
+
+public class AreaTriangle {
+
+	public static void main(String[] args) {
+		
+		Scanner read = new Scanner(System.in);
+
+		Triangle x, y;
+		x = new Triangle();
+		y = new Triangle();
+		
+		System.out.println("Enter the measures of triangle X: ");
+		x.a = read.nextDouble();
+		x.b = read.nextDouble();
+		x.c = read.nextDouble();
+		System.out.println("Enter the measures of triangle Y: ");
+		y.a = read.nextDouble();
+		y.b = read.nextDouble();
+		y.c = read.nextDouble();
+		
+		double areaX = x.area();
+		double areaY = y.area();
+
+		System.out.printf("Area of X triangle: %.4f \n", areaX);
+		System.out.printf("Area of Y triangle: %.4f \n", areaY);
+
+		if (areaX > areaY) {
+			System.out.printf("Larger area: X");
+		} else {
+			System.out.printf("Larger area: Y");
+		}
+
+		read.close();
+	}
+
+}
