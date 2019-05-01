@@ -1,0 +1,39 @@
+package objects;
+
+public class CurrencyConverter {
+
+	public static double IOF = 1.06;
+
+	public static double result(double dollarPrice, double amountReal) {
+		return dollarPrice * IOF * amountReal;
+
+	}
+}
+
+package curso_java;
+
+import java.util.Scanner;
+
+import objects.CurrencyConverter;
+
+public class ConverterDollar {
+
+	public static void main(String[] args) {
+
+		Scanner read = new Scanner(System.in);
+
+		System.out.print("What is the dollar price? U$ ");
+		double dollarPrice = read.nextDouble();
+
+		System.out.println();
+		System.out.print("How many dollars will be bought? R$ ");
+		double amountReal = read.nextDouble();
+
+		System.out.println();
+		System.out.print("Amount to be paid in reais: R$ "
+				+ String.format("%.2f", CurrencyConverter.result(dollarPrice, amountReal)));
+
+		read.close();
+	}
+
+}
